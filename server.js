@@ -6,6 +6,7 @@ const port = process.env.PORT || 3000;
 const os = require('os')
 
 const interfaces = os.networkInterfaces();
+console.log(interfaces);
 let hostIp;
 const getNetworkAddress = () => {
 	for (const name of Object.keys(interfaces)) {
@@ -17,6 +18,7 @@ const getNetworkAddress = () => {
 		}
 	}
 };
+hostIp = String(getNetworkAddress()); 
 server.use(middlewares);
 server.use(router);
 server.listen(port, '0.0.0.0', () => {
